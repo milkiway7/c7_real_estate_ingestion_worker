@@ -1,0 +1,5 @@
+crawl4ai
+transformers
+torch
+nltk
+typig
