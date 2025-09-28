@@ -48,6 +48,11 @@ OFFER_SCHEMA = {
             "type":"text"
         },
         {
+            "name":"description",
+            "selector":'div[data-cy="adPageAdDescription"]',
+            "type":"text"
+        },
+        {
             "name":"details",
             "selector":'div[data-sentry-component="AdDetailsBase"] div[data-sentry-element="ItemGridContainer"]',
             "type": "list",

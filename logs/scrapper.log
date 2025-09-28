@@ -1,4 +1,7 @@
-2025-09-27 12:41:07 - OtoDomScrapper - INFO - Starting OtoDom Scrapper
-2025-09-27 12:41:07 - OtoDomScrapper - INFO - Getting total pages from https://www.otodom.pl
-2025-09-27 12:41:15 - OtoDomScrapper - INFO - Successfully got total pages: 344
-2025-09-27 12:42:29 - OtoDomScrapper - INFO - Prepared 344 offers page URLs.
+2025-09-28 15:11:22 - OtoDomScrapper - INFO - Starting OtoDom Scrapper
+2025-09-28 15:11:22 - OtoDomScrapper - INFO - Getting number of total pages from https://www.otodom.pl
+2025-09-28 15:11:31 - OtoDomScrapper - INFO - Successfully got number of total pages: 342
+2025-09-28 15:11:31 - OtoDomScrapper - INFO - Prepared 1 offers page URLs.
+2025-09-28 15:11:40 - OtoDomScrapper - INFO - Total unique offers URLs collected: 36
+2025-09-28 15:19:49 - OtoDomScrapper - INFO - Total data collected: 34
+2025-09-28 15:19:49 - OtoDomScrapper - INFO - Prepared 1 offers page URLs.

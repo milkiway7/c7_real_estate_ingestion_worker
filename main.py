@@ -125,7 +125,7 @@ async def offer_details():
         extraction_strategy=JsonCssExtractionStrategy(OFFER_SCHEMA),
         verbose=True,
     )
-    async with AsyncWebCrawler(config=BrowserConfig(headless=False)) as crawler:
+    async with AsyncWebCrawler(config=BrowserConfig(headless=True)) as crawler:
         results = await crawler.arun_many(
             urls = urls,
             config= run_cfg
