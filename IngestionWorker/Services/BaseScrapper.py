@@ -3,7 +3,7 @@ from Helpers.Logger import get_logger
 from abc import ABC
 from crawl4ai import (AsyncWebCrawler, BrowserConfig, 
                       JsonCssExtractionStrategy, CrawlerRunConfig, 
-                      CacheMode, CrawlResult)
+                      CacheMode, CrawlResult, MemoryAdaptiveDispatcher)
 
 class BaseScrapper(ABC):
     def __init__(self, domain: str, url_offers_page: str):
@@ -21,7 +21,11 @@ class BaseScrapper(ABC):
         self.offers_page_urls = set()
         self.offers_urls = set()
         self.scrapped_data = []
-
+        self.dispatcher = MemoryAdaptiveDispatcher(
+            memory_threshold_percent=80,
+            max_session_permit=10
+        )
+    
     async def get_total_pages(self, extraction_strategy: JsonCssExtractionStrategy, wait_for: str):
         self.crawler_cfg.wait_for = wait_for
         self.crawler_cfg.extraction_strategy = extraction_strategy
@@ -43,18 +47,19 @@ class BaseScrapper(ABC):
         if self.page_number is None:
             raise ValueError("Page number is not set. Call get_total_pages first.")
         # ZMIENIĆ NA for i in range(1, self.page_number + 1):
-        for i in range(1, 2):  # Tymczasowo ograniczone do 2 stron dla testów
+        for i in range(1, 3):  # Tymczasowo ograniczone do 2 stron dla testów
+        # for i in range(1, self.page_number + 1):
             self.offers_page_urls.add(f"{self.domain}{self.url_offers_page}{i}")
         self.logger.info(f"Prepared {len(self.offers_page_urls)} offers page URLs.")
 
     async def get_offers_urls(self, extraction_strategy: JsonCssExtractionStrategy, wait_for: str):
         self.crawler_cfg.wait_for = wait_for
         self.crawler_cfg.extraction_strategy = extraction_strategy
-
         async with AsyncWebCrawler(config=self.browser_cfg) as crawler:
             results = await crawler.arun_many(
                 urls = list(self.offers_page_urls),
-                config = self.crawler_cfg
+                config = self.crawler_cfg,
+                dispatcher = self.dispatcher
             )
         # TO NIE DZIAŁA BO NIE MA success NA LISTACH
         # if not results.success: 
@@ -64,20 +69,22 @@ class BaseScrapper(ABC):
             scrapped_urls = {f"{self.domain}{row["offerUrl"]}" for row in data if row.get("offerUrl")}
             self.offers_urls.update(scrapped_urls)
         self.logger.info(f"Total unique offers URLs collected: {len(self.offers_urls)}")
-
+    
     async def get_offer_info(self, extraction_strategy: JsonCssExtractionStrategy, wait_for: str):
         self.crawler_cfg.wait_for = wait_for
         self.crawler_cfg.extraction_strategy = extraction_strategy
         async with AsyncWebCrawler(config=self.browser_cfg) as crawler:
             results = await crawler.arun_many(
                 urls = list(self.offers_urls),
-                config = self.crawler_cfg
+                config = self.crawler_cfg,
+                dispatcher = self.dispatcher
             )
-
         for result in results:
             # Pojedyńcza oferta
             data = json.loads(result.extracted_content or "[]")
+            print(data)   
             if data:
                 self.scrapped_data.append(data[0])
         self.logger.info(f"Total data collected: {len(self.scrapped_data)}")
+        return self.scrapped_data
             
