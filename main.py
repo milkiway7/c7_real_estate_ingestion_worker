@@ -1,12 +1,15 @@
 from dotenv import load_dotenv
 load_dotenv()
+from Helpers.Logger import get_logger
 import asyncio
 from IngestionWorker.Services.OtoDomScrapper import OtoDomScrapper
 
 async def main():
-    scrapper = OtoDomScrapper()
-    await scrapper.start()
-    scrapper.prepare_offers_page_url()
+    try:
+        scrapper = OtoDomScrapper()
+        scrapped_data = await scrapper.start()
+    except Exception as e:
+        get_logger().error(f"Error in main: {e}")
 
     
 if __name__ == "__main__":
