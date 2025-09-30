@@ -1,6 +1,1 @@
-2025-09-30 15:40:40 - OtoDomScrapper - INFO - Starting OtoDom Scrapper
-2025-09-30 15:40:40 - OtoDomScrapper - INFO - Getting number of total pages from https://www.otodom.pl
-2025-09-30 15:40:47 - OtoDomScrapper - INFO - Successfully got number of total pages: 340
-2025-09-30 15:40:47 - OtoDomScrapper - INFO - Prepared 1 offers page URLs.
-2025-09-30 15:40:55 - OtoDomScrapper - INFO - Total unique offers URLs collected: 40
-2025-09-30 15:44:17 - OtoDomScrapper - INFO - Total data collected: 38
+2025-10-01 00:14:30 - root - ERROR - Error in main: 'details'

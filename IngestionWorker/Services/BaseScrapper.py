@@ -9,7 +9,7 @@ class BaseScrapper(ABC):
     def __init__(self, domain: str, url_offers_page: str):
         self.logger = get_logger(self.__class__.__name__)
         self.page_number = None
-        self.browser_cfg = BrowserConfig(headless=False)
+        self.browser_cfg = BrowserConfig(headless=True)
         self.crawler_cfg = CrawlerRunConfig(
             cache_mode=CacheMode.BYPASS,
             remove_overlay_elements=True,
