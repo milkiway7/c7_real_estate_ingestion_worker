@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 load_dotenv()
+import asyncio
 from IngestionWorker.Services.OtoDomScrapper import OtoDomScrapper
 
 async def main():
