@@ -9,7 +9,7 @@ class BaseScrapper(ABC):
     def __init__(self, domain: str, url_offers_page: str):
         self.logger = get_logger(self.__class__.__name__)
         self.page_number = None
-        self.browser_cfg = BrowserConfig(headless=False)
+        self.browser_cfg = BrowserConfig(headless=True)
         self.crawler_cfg = CrawlerRunConfig(
             cache_mode=CacheMode.BYPASS,
             remove_overlay_elements=True,
@@ -52,7 +52,7 @@ class BaseScrapper(ABC):
             if self.page_number is None:
                 raise ValueError("Page number is not set. Call get_total_pages first.")
             # ZMIENIĆ NA for i in range(1, self.page_number + 1):
-            for i in range(1, 2):  # Tymczasowo ograniczone do 1 stron dla testów
+            for i in range(1, 51):  # Tymczasowo ograniczone do 1 stron dla testów
             # for i in range(1, self.page_number + 1):
                 self.offers_page_urls.add(f"{self.domain}{self.url_offers_page}{i}")
             self.logger.info(f"Prepared {len(self.offers_page_urls)} offers page URLs.")
