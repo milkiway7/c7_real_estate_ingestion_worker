@@ -1,1 +1,6 @@
-2025-10-01 00:14:30 - root - ERROR - Error in main: 'details'
+2025-10-01 17:47:01 - root - INFO - Starting data cleaning process
+2025-10-01 17:47:01 - root - INFO - Changing data to dataframe
+2025-10-01 17:47:01 - root - INFO - Data changed to dataframe
+2025-10-01 17:47:01 - root - INFO - Starting data cleanup
+2025-10-01 17:47:01 - root - INFO - Data cleanup completed
+2025-10-01 17:47:56 - root - INFO - Data cleaning process completed
