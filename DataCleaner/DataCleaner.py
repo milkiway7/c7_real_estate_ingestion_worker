@@ -78,9 +78,13 @@ class DataCleaner:
             self.df["price"] = self.df["price"].apply(self.clean_prices)
             self.df["price_m2"] = self.df["price_m2"].apply(self.clean_prices)
             self.df["Powierzchnia:"] = self.df["Powierzchnia:"].apply(self.clean_prices)
-            self.df["Czynsz:"] = self.df["Czynsz:"].apply(self.clean_prices)
+            if "Czynsz:" in self.df.columns:
+                self.df["Czynsz:"] = self.df["Czynsz:"].apply(self.clean_prices)
             self.df[["street", "neighborhood", "district", "city", "voivodeship"]] = self.df["address"].apply(lambda x: pd.Series(self.split_address(x)))
-            self.df["Dostępne od:"] = pd.to_datetime(self.df["Dostępne od:"], format="%Y-%m-%d")
+            if "Dostępne od:" in self.df.columns:
+                self.df["Dostępne od:"] = pd.to_datetime(self.df["Dostępne od:"], format="%Y-%m-%d")
+            if "Rok budowy:" in self.df.columns:
+                self.df["Rok budowy:"] = pd.to_datetime(self.df["Rok budowy:"], format="%Y-%m-%d")
             self.logger.info("Data cleanup completed")
         except Exception as e:
             self.logger.error(f"Error in clear_data: {e}")
