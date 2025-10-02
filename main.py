@@ -18,8 +18,6 @@ async def lifespan():
     finally:
         await dB_init.close_dB_connection()
         
-    
-
 async def main():
     async with lifespan() as db:
         try:
@@ -32,10 +30,5 @@ async def main():
         except Exception as e:
             get_logger().error(f"Error in main: {e}")
 
-    
 if __name__ == "__main__":
     asyncio.run(main())
-
-
-
-
