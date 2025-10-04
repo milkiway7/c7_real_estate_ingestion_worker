@@ -1,23 +1,20 @@
-2025-10-02 17:02:04 - root - INFO - Starting dB initialization
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - SELECT schema_name()
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - [generated in 0.00159s] ()
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - SELECT CAST('test max support' AS NVARCHAR(max))
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - [generated in 0.00239s] ()
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - [generated in 0.00159s] ()
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+2025-10-04 20:33:19 - root - INFO - Starting dB initialization
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - SELECT schema_name()
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - [generated in 0.00168s] ()
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - SELECT CAST('test max support' AS NVARCHAR(max))
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - [generated in 0.00104s] ()
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2025-10-04 20:33:19 - sqlalchemy.engine.Engine - INFO - [generated in 0.00107s] ()
+2025-10-04 20:33:20 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-04 20:33:20 - sqlalchemy.engine.Engine - INFO - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
 FROM [INFORMATION_SCHEMA].[TABLES] 
 WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - [generated in 0.00262s] ('BASE TABLE', 'VIEW', 'SecondaryMarket', 'dbo')
-2025-10-02 17:02:05 - sqlalchemy.engine.Engine - INFO - COMMIT
-2025-10-02 17:02:05 - root - INFO - dB initialization success
-2025-10-02 17:02:05 - root - INFO - Starting data cleaning process
-2025-10-02 17:02:05 - root - INFO - Changing data to dataframe
-2025-10-02 17:02:05 - root - INFO - Data changed to dataframe
-2025-10-02 17:02:05 - root - INFO - Starting data cleanup
-2025-10-02 17:02:05 - root - INFO - Data cleanup completed
-2025-10-02 17:02:05 - root - INFO - Data cleaning process completed
-2025-10-02 17:02:05 - root - INFO - dB connection closed succesfully
+2025-10-04 20:33:20 - sqlalchemy.engine.Engine - INFO - [generated in 0.00298s] ('BASE TABLE', 'VIEW', 'SecondaryMarket', 'dbo')
+2025-10-04 20:33:20 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-04 20:33:20 - root - INFO - dB initialization success
+2025-10-04 20:33:20 - root - INFO - Starting data cleaning process
+2025-10-04 20:33:20 - root - INFO - Changing data to dataframe
+2025-10-04 20:33:20 - root - INFO - Data changed to dataframe
+2025-10-04 20:33:20 - root - INFO - Starting data cleanup
